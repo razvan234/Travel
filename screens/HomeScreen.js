@@ -44,7 +44,7 @@ import Categories from "../components/Categories";
         <AdjustmentsVerticalIcon color="#00CCBB" />
       </View>
       {/* Body */}
-      <ScrollView className='bg-gray-100'
+      <ScrollView className='bg-blue-100'
        contentContainerStyle={{
         paddingBottom:100,
        }}
