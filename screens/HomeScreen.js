@@ -1,16 +1,17 @@
-import { View, Text, SafeAreaView, TextInput, Image } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-    AdjustmentsVerticalIcon,
-    MapPinIcon,
-    UserIcon,
-    MagnifyingGlassIcon,
-  } from "react-native-heroicons/outline";
-import { ScrollView } from "react-native";
-import Categories from "../components/Categories";
+import { HeroImage } from "../assets/index";
+import * as Animatable from "react-native-animatable";
 
- const HomeScreen = () => {
+const HomeScreen = () => {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -19,41 +20,50 @@ import Categories from "../components/Categories";
     });
   }, []);
   return (
-    <SafeAreaView className="bg-white pt-5">
-      {/*  Header */}
-      <View className="flex-row mx-4 pb-2 space-x-2  mt-2 items-center px-2">
-        <Image
-          source={{ uri: "https://links.papareact.com/wru" }}
-          className="w-7 h-7 bg-gray-300 p-4 rounded-full item-end"
+    <SafeAreaView className="bg-white flex-1 relative">
+      {/* First section */}
+      <View className="flex-row px-6 mt-9 items-center space-x-3">
+        <View className="w-16 h-16 bg-black rounded-full items-center justify-center">
+          <Text className="text-[#4DABB7] text-3xl font-semibold">Go</Text>
+        </View>
+        <Text className="text-[#2A2B4B] text-3xl font-semibold">Travel</Text>
+      </View>
+      {/* Subtext section */}
+      <View className="px-6 mt-8 space-y-4">
+        <Text className="text-[#3C6072] text-[36px]">Are you ready for a</Text>
+        <Text className="text-[#4DABB7] text-[32px] font-bold">
+          New Adventure?
+        </Text>
+
+        <Text className="text-base"> Work in Progress</Text>
+      </View>
+      {/* 3rd section */}
+      <View className="w-[300px] h-[300px] absolute bg-[#4DABB7] rounded-full bottom-20 -right-36"></View>
+      <View className="w-[300px] h-[300px] absolute bg-[#E99265] rounded-full -bottom-12 -left-20"></View>
+      {/* Image section */}
+      <View className="flex-1 relative items-center justify-center">
+        <Animatable.Image
+          animation="fadeIn"
+          easing="ease-in-out"
+          source={HeroImage}
+          className="w-full h-full object-cover mt-7"
         />
-        <View className="flex-1 pb-2">
-          <Text className="font-bold text-gray-400 text-xs">Travel Now</Text>
-          <Text className="font-bold text-gray-400 text-xl">
-            Discover
-            <MapPinIcon size={30} color="#00CCBB" />
-          </Text>
-        </View>
-        <UserIcon size={35} color="#00CCBB"/>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Discover")}
+          className="absolute bottom-20 w-24 h-24 border-l-2 border-r-2 border-t-4 border-[#4DABB7] rounded-full items-center justify-center"
+        >
+          <Animatable.View
+            animation={"pulse"}
+            easing={"ease-in-out"}
+            iterationCount={"infinite"}
+            className="w-20 h-20  items-center justify-center rounded-full bg-[#4DABB7]"
+          >
+            <Text className="text-gray-50 text-[38px] font-semibold">Go</Text>
+          </Animatable.View>
+        </TouchableOpacity>
       </View>
-      {/*  Search*/}
-      <View className='flex-row items-center space-x-2 pb-2 mx-4 px-2'>
-        <View className='flex-row  flex-1 space-x-2 bg-gray-200 p-3'>
-          <MagnifyingGlassIcon  color="gray" />
-          <TextInput placeholder="Next adventure" keyboardType="default" />
-        </View>
-        <AdjustmentsVerticalIcon color="#00CCBB" />
-      </View>
-      {/* Body */}
-      <ScrollView className='bg-gray-100'
-       contentContainerStyle={{
-        paddingBottom:100,
-       }}
-      >
-        {/* Categories */}
-        <Categories/>
-      </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default HomeScreen
+export default HomeScreen;
