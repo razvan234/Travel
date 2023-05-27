@@ -4,3 +4,7 @@ export { default as Hotels } from "./hotel.png";
 export { default as Restaurants } from "./restaurants.png";
 export { default as Attractions } from "./attraction.png";
 export { default as NotFound } from "./NotFound.png";
+export { default as Piramida } from "./piramida.jpg";
+export { default as Vatican } from "./vatican.jpeg";
+export { default as Sahara } from "./sahara.jpg";
+export { default as Munti } from "./munti.jpg";
