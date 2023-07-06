@@ -2,17 +2,12 @@ import {
   View,
   Text,
   SafeAreaView,
-  TextInput,
   Image,
   TouchableOpacity,
-  Animated,
-  Easing,
 } from "react-native";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Munti } from "../assets/index";
-import * as Animatable from "react-native-animatable";
-import { SliderBox } from "react-native-image-slider-box";
+import { TM, TM2, TM3 } from "../assets/index";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -24,18 +19,18 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-white flex-1">
+    <SafeAreaView className="flex-1">
       {/* Image section */}
-      <View className="flex-1">
-        <Image source={Munti} className="w-full h-full" />
+      <View className="flex-1 justify-center items-center">
+        <Image source={TM3} className=" flex -1 w-[100%] h-[100%]" />
       </View>
-      <View className=" absolute align-middle justify-center items-center mt-[30%] ml-[20%]">
-        <Text className="text-[#ac9090] text-[40px] font-light tracking-wide">
-          Experience
+      <View className=" absolute align-middle justify-center items-center mt-[30%] ml-[25%]">
+        <Text className="text-[#eeeaea] text-[40px] font-bold tracking-wide">
+          Explore
         </Text>
-        <View className="relative align-middle justify-center items-center ">
-          <Text className="text-[#ac9090] text-[20px] font-light tracking-wide">
-            the unfamiliar
+        <View className="align-middle justify-center items-center ">
+          <Text className="text-[#eeeaea] text-[20px] font-semibold tracking-wide">
+            the journey
           </Text>
         </View>
       </View>
